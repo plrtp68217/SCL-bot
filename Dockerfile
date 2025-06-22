@@ -1,9 +1,13 @@
-FROM node:20-alpine3.21
+FROM node:20-alpine
 
-WORKDIR /usr/src/bot
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install && npm cache clean --force
 
 COPY . .
 
-EXPOSE 3001
 
-CMD ["node", "bot.js"]
+CMD ["node", "--experimental-modules", "bot.js"]
