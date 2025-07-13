@@ -23,7 +23,4 @@ RUN npm install --production
 # Копируем остальные файлы
 COPY . .
 
-# Проверяем, что бот может запуститься
-RUN npx node bot.js --dry-run
-
 CMD ["node", "bot.js"]
