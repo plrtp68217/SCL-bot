@@ -1,11 +1,29 @@
+# FROM node:18-alpine
+
+# WORKDIR /app
+
+# COPY package*.json ./
+
+# RUN npm install
+
+# COPY . .
+
+# CMD ["node", "bot.js"]
+
 FROM node:18-alpine
 
 WORKDIR /app
 
+# Копируем только файлы зависимостей сначала
 COPY package*.json ./
 
-RUN npm install
+# Устанавливаем зависимости (включая node-telegram-bot-api)
+RUN npm install --production
 
+# Копируем остальные файлы
 COPY . .
+
+# Проверяем, что бот может запуститься
+RUN npx node bot.js --dry-run
 
 CMD ["node", "bot.js"]
