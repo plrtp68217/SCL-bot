@@ -10,7 +10,7 @@
 
 # CMD ["node", "bot.js"]
 
-FROM node:20-slim
+FROM node:18-alpine
 
 WORKDIR /app
 
