@@ -1,13 +1,11 @@
 FROM node:20-alpine
 
-# Устанавливаем рабочую директорию
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install && npm cache clean --force
+RUN npm install
 
 COPY . .
-
 
 CMD ["node", "--experimental-modules", "bot.js"]
