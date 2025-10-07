@@ -19,7 +19,7 @@ const start = () => {
         if (text == '/start') {
             const username = message.chat.username;
 
-            await bot.sendMessage(chatId, `SCL Games Beta? Hello, ${username}`);
+            await bot.sendMessage(chatId, `SCL Games Beta. Hello, ${username}`);
             return bot.sendSticker(chatId, 'CAACAgIAAxkBAAEOJFFn4AuWLyWSs-gTO8KM1W2TdLHTcQACIgADTlzSKWF0vv5zFvwUNgQ');
         }
     })
